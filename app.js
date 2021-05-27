@@ -22,7 +22,7 @@ class SpeechRecognitionApi{
 }
 
 window.onload = function(){
-    var speech = SpeechRecognitionApi({
+    var speech = new SpeechRecognitionApi({
         output: document.querySelector(".output")
     });
     document.querySelector(".btn_start").addEventListener("click", () =>{
