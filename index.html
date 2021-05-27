@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<index>
+  <title>Liveto.com Speech-to-text API</title>
+
+  <head>
+    <link href="src/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+  <h1 class="center" id="headline">Liveto.com Speech-to-text API</h1>
+  <div id="info">
+    <p id="info_start">1. 언어 및 실험 방법 선택.
+      <br>2. 테스트를 시작하려면 마이크 아이콘을 클릭하세요.</p>
+    <p id="info_speak_now">Listening... (중지하려면 마이크를 클릭하고 수정하려면 렌치를 클릭하세요) </p>
+    <p id="info_no_speech">음성이 감지되지 않습니다.
+      <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">마이크 설정</a>을 조정해야 할 수도 있습니다.</p>
+    <p id="info_no_microphone" style="display:none">
+      마이크가 없습니다. 마이크가 설치되어 있고 
+      <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+        마이크 설정</a>이 올바르게 구성 되었는지 확인하십시오.</p>
+    <p id="info_allow">마이크를 활성화하려면 위의 허용 버튼을 클릭하십시오.</p>
+    <p id="info_denied">마이크 사용 권한이 거부되었습니다.</p>
+    <p id="info_blocked">마이크 사용 허용이 차단되었습니다. 변경하려면 chrome://settings/contentExceptions#media-stream 으로 이동하세요/</p>
+    <p id="info_upgrade">이 브라우저는 api를 지원하지 않습니다. <a href="//www.google.com/chrome">크롬</a> 버전 25 이상으로 업그레이드 하십시오.</p>
+  </div>
+
+  <div id="results" style="width: 60%;margin: 0 auto;">
+    <button id="start_button" onclick="startButton()">
+      <img id="start_img" src="resource/mic.gif" style="position:absolute">
+    </button>
+
+    <div id="hotfix_img"'>
+      <img id="hotfix_button_img" src="resource/fix.png" onclick='hotfixButton()' style="position: absolute; margin-top: 70px; margin-left: 10px; width: 30px;">
+    </div>
+
+    <div id="clear_img" onclick='clearButton()'>
+      <img src="resource/clear.png" style="position: absolute; margin-top: 120px; margin-left: 10px; width: 30px;">
+    </div>
+
+    <div class="center">
+      <!-- <div id="given_sentence">"He who laughs last, didn't get it."</div> -->
+    </div>
+
+    <textarea rows="5" cols="30" id="final_span" class="final" style="display:block; width: 50%;height: 100px;background-color: antiquewhite; margin: 0 auto;"></textarea>
+
+    <div id="ours_span" class="final" style="width: 50%;height: 100px; background-color: antiquewhite;margin: 0 auto;"> </div>
+    <div id="sentence_span" class="final" style="width: 50%;height: 100px; background-color: aliceblue;margin: 0 auto;">
+      <p>
+        <span id="interim_span" class="interim"></span>
+      <p>
+    </div>
+
+    <p class="center">
+      <!-- <button id="submit_button" class="button" onclick="submitButton()">다음</button> -->
+      <button id="retry_button" class="button" onclick="retryButton()">다시 하기</button>
+    <p>
+    <div id="div_language">
+      언어:
+      <select id="select_language" onchange="updateCountry()"></select>
+      &nbsp;&nbsp; 방언:
+      <select id="select_dialect"></select>
+    </div>
+
+    <div id="div_method">
+      실험 방법 선택(method):
+      <select id="select_method" onchange="updateMethod()"></select>
+    </div>
+    </p>
+    <div id="experiment_result"></div>
+  </div>
+  <div class="center">
+    <!-- <a href="https://github.com/realnumber/speech-to-text-correction">소스</a> -->
+  </div>
+  </body>
+
+  <script src="resource/sentences.js">
+  </script>
+  <script src="src/config.js">
+  </script>
+  <script src="src/script.js">
+  </script>
+
+</index>
